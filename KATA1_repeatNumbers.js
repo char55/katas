@@ -1,6 +1,6 @@
 var repeatNumbers = function(data) {
   //data is a 2d array
-  var numberString=[]
+  var numberString=[];
   var search = data.length;
 
   for(var d=0; d<search; d++) {

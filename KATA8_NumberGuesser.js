@@ -11,28 +11,32 @@ If the user provides an answer which isn't a number, print an error message and 
 
 var prompt = require("prompt-sync")();
 var answer = "";
+var word = "";
 var count = 0;
 var history = [];
 var found;
 
-var number = Math.floor(Math.random() * 100;
+var number = Math.floor(Math.random() * 10);
 //console.log(number);
 
 while (answer != number){
-  answer = prompt("What is your guess? ");
+  console.log("Guess a number:")
+  answer = prompt(">");
   found = 0;
 
   if(isNaN(answer)) {
-    console.log("That's not a number - try again.")
+    //if it it's a number
+    console.log("That's not a number - try again.\n")
     found = 1;
   }
 
 
   for(var i = 0; i < history.length; i++) {
     if (history[i] == answer) {
-      //do nothing
+      //answer was already attempted
       console.log("You already tried that one...")
       found = 1;
+      // don't increase count or push answer to history
 
     }
   }
@@ -47,12 +51,13 @@ while (answer != number){
 
 
   if (answer == number) {
-    console.log("CONGRATS!  THAT'S IT!!!!\n And it only took " + count)
     if (count == 1) {
-      console.log(" try!");
+      word = " try!";
     }else {
-      console.log("tries!")
+      word = " tries!";
     }
+    console.log("CONGRATS!  THAT'S IT!!!!\nAnd it only took " + count + word)
+
   } else {
       // wrong guess
       if (answer > number) {
@@ -62,6 +67,6 @@ while (answer != number){
         console.log("Too low :(");
       }
 
-      console.log("That was attempt number " + count);
+      console.log("That was attempt number " + count + "\n");
   }
 }
