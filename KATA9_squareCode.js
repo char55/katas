@@ -27,7 +27,8 @@ function removeSpaces(input) {
 
 
 function makeSquare(input) {
-  const squareSize = Math.floor(Math.sqrt(input.length));
+  // const squareSize = Math.floor(Math.sqrt(input.length));
+  const squareSize = 3;
   const square = []
   for (let i = 0 ; i <= squareSize; i++) {
     square[i] = [];
